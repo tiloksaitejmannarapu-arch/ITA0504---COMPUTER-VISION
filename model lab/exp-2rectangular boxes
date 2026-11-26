@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+w = int(input("Enter width: "))
+h = int(input("Enter height: "))
+
+img = np.ones((h,w,3), dtype=np.uint8)*255
+rw, rh = w//10, h//10
+
+cv2.rectangle(img,(0,0),(rw,rh),(0,0,255),-1)
+cv2.rectangle(img,(w-rw,0),(w-1,rh),(0,255,0),-1)
+cv2.rectangle(img,(0,h-rh),(rw,h-1),(255,0,0),-1)
+cv2.rectangle(img,(w-rw,h-rh),(w-1,h-1),(0,255,255),-1)
+
+cv2_imshow(img)
